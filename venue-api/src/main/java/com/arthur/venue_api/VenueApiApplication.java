@@ -1,0 +1,13 @@
+package com.arthur.venue_api;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class VenueApiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(VenueApiApplication.class, args);
+	}
+
+}
