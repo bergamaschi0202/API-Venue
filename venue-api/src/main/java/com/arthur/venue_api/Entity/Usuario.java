@@ -3,16 +3,22 @@ package com.arthur.venue_api.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
+
 
 @Entity
 @Table(name = "TBL_USUARIO")
 @Data
-public class Usuario {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "nome", nullable = false, length = 100)
@@ -59,8 +65,52 @@ public class Usuario {
     @Column(name = "estado", length = 2)
     private String estado;
 
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    private List<UsuarioPerfil> perfis;
+
 
     public Usuario() {
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return perfis.stream()
+                .map(up -> new org.springframework.security.core.authority.SimpleGrantedAuthority(
+                        "ROLE_" + up.getPerfil().name()
+                ))
+                .toList();
+    }
+
+    @Override
+    public String getUsername() {
+        // O email é uma ótima escolha.
+        return this.email;
+    }
+
+    @Override
+    public String getPassword() {
+        // Retorna a senha (hashada) do seu usuário.
+        return this.senha;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
 }
