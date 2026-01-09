@@ -75,8 +75,8 @@ public class Usuario implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return perfis.stream()
-                .map(up -> new org.springframework.security.core.authority.SimpleGrantedAuthority(
-                        "ROLE_" + up.getPerfil().name()
+                .map(UsuarioPerfil -> new org.springframework.security.core.authority.SimpleGrantedAuthority(
+                        "ROLE_" + UsuarioPerfil.getPerfil().name()
                 ))
                 .toList();
     }

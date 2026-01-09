@@ -18,7 +18,11 @@ public class UsuarioPerfil {
     private Usuario usuario;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "perfil", nullable = false, length = 20)
+    @Column(name = "perfil", length = 20)
     private PerfilEnum perfil;
+
+    public PerfilEnum getPerfil() {
+        return perfil;
+    }
 
 }
