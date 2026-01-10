@@ -1,4 +1,4 @@
-package com.arthur.venue_api.Entity;
+package com.arthur.venue_api.Id;
 
 import com.arthur.venue_api.Enum.PerfilEnum;
 import jakarta.persistence.*;

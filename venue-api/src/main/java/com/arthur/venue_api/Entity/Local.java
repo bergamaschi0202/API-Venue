@@ -1,10 +1,13 @@
 package com.arthur.venue_api.Entity;
 
-import com.arthur.venue_api.Enum.Categoria;
+import com.arthur.venue_api.Enum.CategoriaEnum;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "TBL_LOCAL")
@@ -19,14 +22,16 @@ public class Local {
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "descricao", nullable = false, length = 500)
+    @Lob
+    @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "categoria", nullable = false, length = 500)
-    private Categoria categoria;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "categoria", nullable = false, length = 50)
+    private CategoriaEnum categoria;
 
     @Column(name = "foto_local", length = 255)
-    private String foto_local;
+    private String fotoLocal;
 
     // Endereço
     @Column(name = "cep", nullable = false, length = 10)
@@ -38,7 +43,7 @@ public class Local {
     @Column(name = "numero", nullable = false, length = 10)
     private String numero;
 
-    @Column(name = "complemento", nullable = false, length = 50)
+    @Column(name = "complemento", length = 50)
     private String complemento;
 
     @Column(name = "bairro", nullable = false, length = 50)
@@ -54,17 +59,24 @@ public class Local {
     @Column(name = "capacidade_maxima", nullable = false)
     private int capacidade;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_usuario_dono", nullable = false)
-    private Usuario id_dono;
+    private Usuario dono;
 
-    @Column(name = "data_cadastro", nullable = false)
-    private LocalDateTime data_cadastro;
+    @CreationTimestamp
+    @Column(name = "data_cadastro", updatable = false)
+    private LocalDateTime dataCadastro;
 
     @Column(name = "ativo", nullable = false)
     private boolean ativo;
 
     @Column(name = "nota_media", nullable = false)
-    private int nota_media;
+    private BigDecimal notaMedia;
+
+    @OneToMany(mappedBy = "local", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FotoFeed> fotosFeed;
+
+    @OneToMany(mappedBy = "local", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Servico> servicos;
 
 }

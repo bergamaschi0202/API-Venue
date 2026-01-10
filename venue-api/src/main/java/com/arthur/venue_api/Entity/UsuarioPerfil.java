@@ -1,6 +1,7 @@
 package com.arthur.venue_api.Entity;
 
 import com.arthur.venue_api.Enum.PerfilEnum;
+import com.arthur.venue_api.Id.UsuarioPerfilId;
 import jakarta.persistence.*;
 import lombok.Data;
 

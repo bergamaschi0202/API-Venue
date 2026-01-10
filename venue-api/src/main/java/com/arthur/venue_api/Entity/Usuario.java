@@ -1,5 +1,6 @@
 package com.arthur.venue_api.Entity;
 
+import com.arthur.venue_api.Enum.PerfilEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -7,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -66,7 +68,7 @@ public class Usuario implements UserDetails {
     private String estado;
 
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    private List<UsuarioPerfil> perfis;
+    private List<UsuarioPerfil> perfis = new ArrayList<>();
 
 
     public Usuario() {

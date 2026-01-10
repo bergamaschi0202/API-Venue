@@ -21,7 +21,7 @@ public class FotoFeed {
 
     @ManyToOne
     @JoinColumn(name = "id_local", nullable = false)
-    private Usuario id_local;
+    private Local local;
 
     @CreationTimestamp
     @Column(name = "data_foto", nullable = false, updatable = false)

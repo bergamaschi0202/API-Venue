@@ -1,6 +1,6 @@
 package com.arthur.venue_api.Enum;
 
-public enum Categoria {
+public enum CategoriaEnum {
     SALAO,
     SALA_DE_CONFERENCIA,
     AUDITORIO,
