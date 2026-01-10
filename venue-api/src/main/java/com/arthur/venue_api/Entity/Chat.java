@@ -2,13 +2,14 @@ package com.arthur.venue_api.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "TBL_USUARIO")
+@Table(name = "TBL_CHAT")
 @Data
 public class Chat {
 
@@ -17,13 +18,15 @@ public class Chat {
     @Column(name = "id")
     private Long id;
 
+    @OneToOne
     @JoinColumn(name = "id_contrato", nullable = false)
     private Contrato contrato;
 
+    @CreationTimestamp
     @Column(name = "data_inicio", nullable = false)
     private LocalDateTime dataInicio;
 
-    @Column(name = "data_termino", nullable = false)
+    @Column(name = "data_termino")
     private LocalDateTime dataTermino;
 
     @Column(name = "ativo", nullable = false)

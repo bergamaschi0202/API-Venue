@@ -2,11 +2,12 @@ package com.arthur.venue_api.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "TBL_MENSAGEM")
+@Table(name = "TBL_CHAT_MENSAGEM")
 @Data
 public class ChatMensagem {
 
@@ -27,6 +28,7 @@ public class ChatMensagem {
     @Column(name = "mensagem", nullable = false)
     private String mensagem;
 
+    @CreationTimestamp
     @Column(name = "data_envio")
     private LocalDateTime dataEnvio;
 

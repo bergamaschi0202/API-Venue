@@ -67,7 +67,7 @@ public class Usuario implements UserDetails {
     @Column(name = "estado", length = 2)
     private String estado;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<UsuarioPerfil> perfis = new ArrayList<>();
 
 

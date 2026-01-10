@@ -5,7 +5,7 @@ import com.arthur.venue_api.Id.UsuarioPerfilId;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Embeddable
+@Entity
 @Table(name = "TBL_USUARIO_PERFIL")
 @Data
 public class UsuarioPerfil {
