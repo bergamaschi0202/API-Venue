@@ -28,14 +28,17 @@ public class Reserva {
     @Column(name = "tipo_reserva", nullable = false, length = 10)
     private TipoReservaEnum tipoReserva;
 
+    @Column(name = "data_inicio", nullable = false)
+    private LocalDate dataInicio;
+
     @Column(name = "horario_inicio", nullable = false)
     private LocalTime horarioInicio;
 
-    @Column(name = "horario_termino", nullable = false)
-    private LocalTime horarioTermino;
+    @Column(name = "data_fim", nullable = false)
+    private LocalDate dataFim;
 
-    @Column(name = "data_reserva", nullable = false)
-    private LocalDate data;
+    @Column(name = "horario_fim", nullable = false)
+    private LocalTime horarioFim;
 
     @Column(name = "preco", nullable = false)
     private BigDecimal preco;

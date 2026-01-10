@@ -1,8 +1,9 @@
 package com.arthur.venue_api.Enum;
 
-public enum TipoRepeticao {
+public enum TipoRepeticaoEnum {
     NENHUM,
     SEMANAL,
     MENSAL,
+    ORDEM_SEMANA_MES,
     QUINZENAL
 }
