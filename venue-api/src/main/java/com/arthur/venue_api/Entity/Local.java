@@ -79,4 +79,7 @@ public class Local {
     @OneToMany(mappedBy = "local", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Servico> servicos;
 
+    @OneToMany(mappedBy = "local", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Avaliacao> avaliacoes;
+
 }
