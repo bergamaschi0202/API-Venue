@@ -32,7 +32,7 @@ public class Reserva {
     private LocalTime horarioInicio;
 
     @Column(name = "horario_termino", nullable = false)
-    private LocalTime  horarioTermino;
+    private LocalTime horarioTermino;
 
     @Column(name = "data_reserva", nullable = false)
     private LocalDate data;
