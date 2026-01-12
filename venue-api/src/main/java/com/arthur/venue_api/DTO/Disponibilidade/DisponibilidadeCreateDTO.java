@@ -1,13 +1,11 @@
-package com.arthur.venue_api.DTO;
+package com.arthur.venue_api.DTO.Disponibilidade;
 
-import com.arthur.venue_api.Entity.Local;
 import com.arthur.venue_api.Enum.TipoRepeticaoEnum;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public record DisponibilidadeCreateDTO(
-        Local local,
         LocalDate dataInicio,
         LocalTime horarioInicio,
         LocalDate dataFim,

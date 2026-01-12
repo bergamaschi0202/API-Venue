@@ -1,4 +1,4 @@
-package com.arthur.venue_api.DTO;
+package com.arthur.venue_api.DTO.Usuario;
 
 public record UsuarioCreateDTO(
         String nome,

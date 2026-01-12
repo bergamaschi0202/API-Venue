@@ -1,4 +1,4 @@
-package com.arthur.venue_api.DTO;
+package com.arthur.venue_api.DTO.Disponibilidade;
 
 import com.arthur.venue_api.Entity.Local;
 import com.arthur.venue_api.Enum.StatusDisponibilidadeEnum;
@@ -13,5 +13,8 @@ public record DisponibilidadeResponseDTO(
         LocalTime horarioInicio,
         LocalDate dataFim,
         LocalTime horarioFim,
-        StatusDisponibilidadeEnum statusDisponibilidade
+        StatusDisponibilidadeEnum status,
+        TipoRepeticaoEnum tipoRepeticao,
+        LocalDate validadeRepeticao,
+        boolean ativa
 ) { }

@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public record ReservaCreateDTO(
-        Local local,
         TipoReservaEnum tipoReserva,
         LocalTime horarioInicio,
         LocalTime horarioTermino,

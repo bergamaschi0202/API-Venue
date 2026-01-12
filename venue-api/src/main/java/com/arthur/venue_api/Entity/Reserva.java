@@ -45,6 +45,6 @@ public class Reserva {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status_reserva", nullable = false, length = 30)
-    private StatusReservaEnum statusReserva;
+    private StatusReservaEnum status;
 
 }

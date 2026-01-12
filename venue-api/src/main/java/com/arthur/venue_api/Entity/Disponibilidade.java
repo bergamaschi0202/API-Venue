@@ -57,7 +57,7 @@ public class Disponibilidade {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status_disponibilidade", nullable = false, length = 30)
-    private StatusDisponibilidadeEnum statusDisponibilidade;
+    private StatusDisponibilidadeEnum status;
 
     @CreationTimestamp
     @Column(name = "data_criacao", updatable = false)

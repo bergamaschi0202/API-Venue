@@ -6,7 +6,6 @@ import com.arthur.venue_api.Enum.TipoServicoEnum;
 import java.math.BigDecimal;
 
 public record ServicoCreateDTO(
-        Local local,
         TipoServicoEnum tipoServico,
         String nome,
         String descricao,

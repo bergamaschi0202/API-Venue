@@ -70,6 +70,9 @@ public class Usuario implements UserDetails {
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<UsuarioPerfil> perfis = new ArrayList<>();
 
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private List<Contrato> contratos = new ArrayList<>();
+
 
     public Usuario() {
     }
@@ -85,13 +88,13 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getUsername() {
-        // O email é uma ótima escolha.
+        // O email é uma ótima escolha
         return this.email;
     }
 
     @Override
     public String getPassword() {
-        // Retorna a senha (hashada) do seu usuário.
+        // Retorna a senha hashada do usuário
         return this.senha;
     }
 

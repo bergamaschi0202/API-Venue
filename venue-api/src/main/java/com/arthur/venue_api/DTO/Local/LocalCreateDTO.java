@@ -1,4 +1,4 @@
-package com.arthur.venue_api.DTO;
+package com.arthur.venue_api.DTO.Local;
 
 import com.arthur.venue_api.Enum.CategoriaEnum;
 
@@ -6,6 +6,7 @@ public record LocalCreateDTO(
         String nome,
         String descricao,
         CategoriaEnum categoria,
+        String fotoLocal,
         String cep,
         String logradouro,
         String numero,
