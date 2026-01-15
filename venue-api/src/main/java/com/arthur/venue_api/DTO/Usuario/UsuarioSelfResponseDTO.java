@@ -1,5 +1,6 @@
 package com.arthur.venue_api.DTO.Usuario;
 
+import com.arthur.venue_api.DTO.ContratoResumoDTO;
 import com.arthur.venue_api.Entity.Contrato;
 import com.arthur.venue_api.Entity.UsuarioPerfil;
 
@@ -11,7 +12,6 @@ public record UsuarioSelfResponseDTO(
         String username,
         String telefone,
         String email,
-        String senha,
         String foto,
         String cep,
         String logradouro,
@@ -21,6 +21,6 @@ public record UsuarioSelfResponseDTO(
         String cidade,
         String estado,
         List<UsuarioPerfil> perfis,
-        List<Contrato> contratos,
+        List<ContratoResumoDTO> contratos,
         LocalDateTime dataCadastro
 ) { }
